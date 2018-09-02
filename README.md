@@ -1,5 +1,5 @@
-# makedirtree
-Recreates directory structure from json file.
+# Python 3, Linux MakeDirTree
+Recreates directory structure from given json file. 
 
 ## Requiremenets:
 [Json Parser ](https://github.com/tmdag/jsonParser)
@@ -7,11 +7,11 @@ This module is using 'jsonParser' module (wrapper on top of native python 'json'
 
 ## Usage:
 
-- Create directory structure from current directory (and its children) and save structure to json file
+- Create directory structure from current directory (and its children) and save structure to json file using built in linux command:
 ```
 $ 'tree -Jd . > folderTemplate.json'
 ```
-- Recreate directory structure from json, starting from provided directory and project name
+- Recreate directory structure from saved json file, starting from provided directory and your project name
 ```
 from jsonParser import JsonFile
 Structures("/home/Projects/", template_file="folderTemplate.json").create("Project002")
