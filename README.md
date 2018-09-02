@@ -19,7 +19,7 @@ Structures("/home/Projects/", template_file="folderTemplate.json").create("Proje
 
 # Example:
 ```
-Each of yout projects has same directory structure:
+Each of your projects has same directory structure:
 
 $ /home/Projects/Project001 >  tree -d .
 .
@@ -35,7 +35,7 @@ $ /home/Projects/Project001 >  tree -d .
 │       └── folder01
 └── source
 
-And you want to create new, Project002 with same directory structure.
+and you want to create a new, Project002 with same directory structure.
 
 You can save current directory structure to file:
 $ /home/Projects/Project001 >  'tree -Jd . > folderTemplate.json'
