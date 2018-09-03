@@ -11,6 +11,12 @@ This module is using 'jsonParser' module (wrapper on top of native python 'json'
 ```
 $ 'tree -Jd . > folderTemplate.json'
 ```
+Or from Python subprocess:
+```
+import subprocess
+data = subprocess.run(["tree", "-Jd", "/path/to/dir"], stdout=subprocess.PIPE)
+print(data.stdout)
+```
 - Recreate directory structure from saved json file, starting from provided directory and your project name
 ```
 from jsonParser import JsonFile
