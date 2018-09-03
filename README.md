@@ -56,6 +56,14 @@ $ /home/Projects/Project001 >  'tree -Jd . > folderTemplate.json'
 
 and using python, recreate this structure:
 from jsonParser import JsonFile
-from createDirectories import Structures
-Structures("/home/Projects/", template_file="folderTemplate.json").create("Project002")
+
+PROJECTS_PARENT_DIR = "/home/Projects/"
+STRUCTURE_TEMPLATE_FILE = "/config/folderTemplate.json"
+NEW_PROJECT_NAME = "Project002"
+
+dir_structure = SetupTree(PROJECTS_PARENT_DIR, template_file=STRUCTURE_TEMPLATE_FILE)
+# dir_structure.test_structure(NEW_PROJECT_NAME)
+dir_structure.create_new_project(NEW_PROJECT_NAME)
+
 ```
+
