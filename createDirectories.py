@@ -5,6 +5,7 @@ Create directory tree template with
 """
 import pathlib
 import os
+from jsonParser.jsonParser import JsonFile
 
 class _ExtractFromJson:
     """ Internal, hidden class to extract directories from Json File """
@@ -60,9 +61,8 @@ class SetupTree:
             print("Creating Directory: {}".format(s_path))
 
 if __name__ == '__main__':
-    from jsonParser.jsonParser import JsonFile
     projects_parent_dir = "/home/Projects/"
     dir_structure = SetupTree(projects_parent_dir, template_file="folderTemplate.json")
     new_project_name = "Project002"
     dir_structure.test_structure(new_project_name)
-    dir_structure.create_new_project(new_project_name)
+    # dir_structure.create_new_project(new_project_name)
