@@ -5,7 +5,7 @@ Create directory tree template with
 """
 import pathlib
 import os
-from .jsonParser.jsonParser import JsonFile
+from jsonParser.jsonParser import JsonFile
 
 class _ExtractFromJson:
     """ Internal, hidden class to extract directories from Json File """
