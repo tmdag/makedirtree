@@ -60,12 +60,13 @@ class SetupTree:
             print("Creating Directory: {}".format(s_path))
 
 if __name__ == '__main__':
+    # import from subdirectory if that module is run from other package
     from jsonParser.jsonParser import JsonFile
-
     projects_parent_dir = "/home/Projects/"
     dir_structure = SetupTree(projects_parent_dir, template_file="folderTemplate.json")
     new_project_name = "Project002"
     dir_structure.test_structure(new_project_name)
     # dir_structure.create_new_project(new_project_name)
 else:
+    # import from subpackage if that module is run from other package
     from .jsonParser.jsonParser import JsonFile
