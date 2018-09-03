@@ -1,4 +1,12 @@
-# Python 3, Linux MakeDirTree
+Python 3, Linux MakeDirTree
+==============
+![VFX Pipeline](https://img.shields.io/badge/VFX%20Pipeline-2018-lightgrey.svg?style=flat)
+![python v3.6](https://img.shields.io/badge/Python-3.6-blue.svg?style=flat)
+![pylint Score](https://mperlet.github.io/pybadge/badges/9.44.svg)
+
+GitHub: https://github.com/tmdag/makedirtree
+
+## Overview
 Recreates directory structure from given json file. 
 
 ## Requiremenets:
