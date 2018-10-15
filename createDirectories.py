@@ -35,6 +35,25 @@ class _ExtractFromJson:
         self.dir_structure = sorted(self.dir_structure[:-1].split(","))
         return self.dir_structure
 
+    def asdict(self):
+        """ return structure as a dictionary """
+        self.crawler(self.temp_directory)
+        list_structure = sorted(self.dir_structure[:-1].split(","))
+
+        out_dict = {}
+        temp_list_dirs = []
+        for directory in list_structure:
+            folder_list = directory.split("/")[:-1]
+            temp_list_dirs.append(folder_list)
+
+        for path in temp_list_dirs:
+            current_level = out_dict
+            for part in path:
+                if part not in current_level:
+                    current_level[part] = {}
+                current_level = current_level[part]
+        return out_dict
+
 class SetupTree:
     """ Main working class to re-create folder structure """
     def __init__(self, initial_dir, template_file="folderTemplate.json"):
@@ -51,6 +70,12 @@ class SetupTree:
             s_path = self.init_dir + project_name + single_path[1:]
             print("Directory to be created: {}".format(s_path))
 
+    def return_dict(self, project_name):
+        """ extract and return as dictionary without init dir """
+        appennd_dict = _ExtractFromJson(self.template[0]).asdict()
+        appennd_dict[project_name] = appennd_dict.pop(".")
+        return appennd_dict
+
     def create_new_project(self, project_name):
         """ Create directory for every line in a list of directories """
         for single_path in self.structure:
@@ -66,6 +91,7 @@ if __name__ == '__main__':
     dir_structure = SetupTree(projects_parent_dir, template_file="folderTemplate.json")
     new_project_name = "Project002"
     dir_structure.test_structure(new_project_name)
+    print(dir_structure.return_dict(new_project_name))
     # dir_structure.create_new_project(new_project_name)
 else:
     # import from subpackage if that module is run from other package
