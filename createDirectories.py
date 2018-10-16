@@ -66,11 +66,16 @@ class SetupTree:
 
     def test_structure(self, project_name):
         """ Create directory for every line in a list of directories """
+        for single_path in self.structure:
+            s_path = self.init_dir + project_name + single_path[1:]
+            print("Directory to be created: {}".format(s_path))
+
+    def return_list(self, project_name):
+        """ Create directory for every line in a list of directories """
         paths = []
         for single_path in self.structure:
             s_path = self.init_dir + project_name + single_path[1:]
             paths.append(s_path)
-            print("Directory to be created: {}".format(s_path))
         return paths
 
     def return_dict(self, project_name):
