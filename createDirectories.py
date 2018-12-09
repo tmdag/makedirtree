@@ -4,7 +4,8 @@ Create directory tree template with
 'tree -Jd . > folderTemplate.json'
 """
 import pathlib
-import os
+import os, sys
+import logging
 
 class _ExtractFromJson:
     """ Internal, hidden class to extract directories from Json File """
@@ -56,8 +57,12 @@ class _ExtractFromJson:
 
 class SetupTree:
     """ Main working class to re-create folder structure """
-    def __init__(self, initial_dir, template_file="folderTemplate.json"):
+    def __init__(self, initial_dir, template_file="folderTemplate.json", debug=True):
         """ check if file exists, load json file and extract directories from it """
+        logging.basicConfig(stream=sys.stderr, level=logging.DEBUG)
+        if not debug:
+            logging.disable(logging.DEBUG)
+
         self.init_dir = initial_dir
         if not os.path.isfile(template_file):
             raise Exception('file {0} not found\n'.format(template_file))
@@ -68,7 +73,7 @@ class SetupTree:
         """ Create directory for every line in a list of directories """
         for single_path in self.structure:
             s_path = self.init_dir + project_name + single_path[1:]
-            print("Directory to be created: {}".format(s_path))
+            logging.debug("Directory to be created: {}".format(s_path))
 
     def return_list(self, project_name):
         """ Create directory for every line in a list of directories """
@@ -90,7 +95,7 @@ class SetupTree:
             s_path = self.init_dir + project_name + single_path[1:]
             # https://stackoverflow.com/questions/273192/how-can-i-safely-create-a-nested-directory-in-python
             pathlib.Path(s_path).mkdir(parents=True, exist_ok=True)
-            print("Creating Directory: {}".format(s_path))
+            logging.debug("Creating Directory: {}".format(s_path))
 
 if __name__ == '__main__':
     # import from subdirectory if that module is run from other package
