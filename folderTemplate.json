@@ -1,0 +1,31 @@
+[
+	{"type":"directory","name":".","contents":[
+		{"type":"directory","name":"out","contents":[
+			{"type":"directory","name":"cubeMap","contents":[
+			]},
+			{"type":"directory","name":"exposures","contents":[
+			]},
+			{"type":"directory","name":"hdrmaps","contents":[
+			]},
+			{"type":"directory","name":"spheres","contents":[
+			]}
+		]},
+		{"type":"directory","name":"project","contents":[
+			{"type":"directory","name":"houdini","contents":[
+			]},
+			{"type":"directory","name":"nuke","contents":[
+			]},
+			{"type":"directory","name":"ptgui","contents":[
+			]}
+		]},
+		{"type":"directory","name":"render","contents":[
+			{"type":"directory","name":"renderPBR","contents":[
+				{"type":"directory","name":"Anim_E00","contents":[
+				]}
+			]}
+		]},
+		{"type":"directory","name":"source","contents":[
+		]}
+	]},
+	{"type":"report","directories":13,"files":1}
+]
