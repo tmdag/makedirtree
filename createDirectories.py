@@ -72,14 +72,15 @@ class SetupTree:
     def test_structure(self, project_name):
         """ Create directory for every line in a list of directories """
         for single_path in self.structure:
-            s_path = self.init_dir + project_name + single_path[1:]
+            s_path = os.path.join(os.path.sep, self.init_dir.strip("/"), project_name.strip("/"), single_path[1:].strip("/"))
+            # s_path = self.init_dir + project_name + single_path[1:]
             logging.debug("Directory to be created: {}".format(s_path))
 
     def return_list(self, project_name):
         """ Create directory for every line in a list of directories """
         paths = []
         for single_path in self.structure:
-            s_path = self.init_dir + project_name + single_path[1:]
+            s_path = os.path.join(os.path.sep, self.init_dir.strip("/"), project_name.strip("/"), single_path[1:].strip("/"))
             paths.append(s_path)
         return paths
 
@@ -92,7 +93,7 @@ class SetupTree:
     def create_new_project(self, project_name):
         """ Create directory for every line in a list of directories """
         for single_path in self.structure:
-            s_path = self.init_dir + project_name + single_path[1:]
+            s_path = os.path.join(os.path.sep, self.init_dir.strip("/"), project_name.strip("/"), single_path[1:].strip("/"))
             # https://stackoverflow.com/questions/273192/how-can-i-safely-create-a-nested-directory-in-python
             pathlib.Path(s_path).mkdir(parents=True, exist_ok=True)
             logging.debug("Creating Directory: {}".format(s_path))
@@ -103,8 +104,8 @@ if __name__ == '__main__':
     projects_parent_dir = "/home/Projects/"
     dir_structure = SetupTree(projects_parent_dir, template_file="folderTemplate.json")
     new_project_name = "Project002"
-    print(dir_structure.test_structure(new_project_name))
-    print(dir_structure.return_dict(new_project_name))
+    # print(dir_structure.test_structure(new_project_name))
+    # print(dir_structure.return_dict(new_project_name))
     # dir_structure.create_new_project(new_project_name)
 else:
     # import from subpackage if that module is run from other package
