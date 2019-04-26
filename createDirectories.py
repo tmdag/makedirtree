@@ -73,7 +73,6 @@ class SetupTree:
         """ Create directory for every line in a list of directories """
         for single_path in self.structure:
             s_path = os.path.join(os.path.sep, self.init_dir.strip("/"), project_name.strip("/"), single_path[1:].strip("/"))
-            # s_path = self.init_dir + project_name + single_path[1:]
             logging.debug("Directory to be created: {}".format(s_path))
 
     def return_list(self, project_name):
