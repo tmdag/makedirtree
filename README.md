@@ -12,6 +12,12 @@ Recreates directory structure from given json file.
 ## Requiremenets:
 [Json Parser ](https://github.com/tmdag/jsonParser)
 This module is using 'jsonParser' module (wrapper on top of native python 'json'module )
+It should be installed automatically through dependencies
+
+## Installation:
+```bash
+pip install git+http://github.com/tmdag/makedirtree
+```
 
 ## Usage:
 
