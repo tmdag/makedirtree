@@ -27,7 +27,7 @@ print(data.stdout)
 ```
 - Recreate directory structure from saved json file, starting from provided directory and your project name
 ```
-from jsonParser import JsonFile
+from jsonparser import JsonFile
 Structures("/home/Projects/", template_file="folderTemplate.json").create("Project002")
 ```
 
@@ -55,7 +55,7 @@ You can save current directory structure to file:
 $ /home/Projects/Project001 >  'tree -Jd . > folderTemplate.json'
 
 and using python, recreate this structure:
-from jsonParser import JsonFile
+from jsonparser import JsonFile
 
 PROJECTS_PARENT_DIR = "/home/Projects/"
 STRUCTURE_TEMPLATE_FILE = "/config/folderTemplate.json"
