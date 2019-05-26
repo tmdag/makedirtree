@@ -16,7 +16,7 @@ It should be installed automatically through dependencies
 
 ## Installation:
 ```bash
-pip install git+http://github.com/tmdag/makedirtree
+$ pip install git+http://github.com/tmdag/makedirtree
 ```
 
 ## Usage:
